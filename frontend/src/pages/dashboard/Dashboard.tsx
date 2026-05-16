@@ -196,9 +196,10 @@ export const Dashboard: React.FC = () => {
                       ))}
                     </Pie>
                     <Tooltip
-                      formatter={(value: number, name: string) => {
-                        const pct = total > 0 ? ((value / total) * 100).toFixed(0) : 0;
-                        return [`${value} tasks (${pct}%)`, name];
+                      formatter={(value: any, name: string) => {
+                        const val = Number(value);
+                        const pct = total > 0 ? ((val / total) * 100).toFixed(0) : 0;
+                        return [`${val} tasks (${pct}%)`, name];
                       }}
                       contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 8px 24px rgba(0,0,0,0.12)', fontSize: 13, fontWeight: 600 }}
                     />
@@ -243,7 +244,7 @@ export const Dashboard: React.FC = () => {
                     <Tooltip
                       cursor={{ fill: 'rgba(99,102,241,0.06)', radius: 8 }}
                       contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 8px 24px rgba(0,0,0,0.12)', fontSize: 13, fontWeight: 600 }}
-                      formatter={(v: number) => [`${v} tasks`, 'Count']}
+                      formatter={(v: any) => [`${v} tasks`, 'Count']}
                     />
                     <Bar dataKey="value" radius={[8, 8, 0, 0]} maxBarSize={60}>
                       {priorityData.map((_, index) => (

@@ -9,8 +9,8 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     
-    DATABASE_URL: str = "postgresql://admin:adminpassword@localhost:5432/team_task_manager"
-    REDIS_URL: str = "redis://localhost:6379/0"
+    DATABASE_URL: str
+    REDIS_URL: str
     
     # CORS — comma-separated list of allowed origins, or * for all
     CORS_ORIGINS: str = "*"

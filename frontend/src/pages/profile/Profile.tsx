@@ -184,7 +184,7 @@ export const Profile: React.FC = () => {
                   Member Since
                 </dt>
                 <dd className="mt-1 text-sm text-gray-900 dark:text-white sm:mt-0 sm:col-span-2">
-                  {new Date(user.created_at).toLocaleDateString()}
+                  {user.created_at ? new Date(user.created_at).toLocaleDateString() : 'N/A'}
                 </dd>
               </div>
 

@@ -54,7 +54,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({ taskId, onClos
         
         const c = await taskApi.getComments(taskId);
         setComments(c);
-        setRewardPoints(currentTask.reward_points);
+        setRewardPoints(currentTask.reward_points || 0);
         setHasChanges(false);
       }
     } catch (error) {

@@ -102,14 +102,17 @@ export const Dashboard: React.FC = () => {
   }
 
   const statusData = stats?.tasks_by_status
-    ? Object.keys(stats.tasks_by_status)
-        .map(k => ({ name: k === 'todo' ? 'To Do' : k === 'in_progress' ? 'In Progress' : 'Done', value: stats.tasks_by_status[k] }))
+    ? Object.entries(stats.tasks_by_status)
+        .map(([k, v]) => ({ 
+          name: k === 'todo' ? 'To Do' : k === 'in_progress' ? 'In Progress' : 'Done', 
+          value: v 
+        }))
         .filter(d => d.value > 0)
     : [];
 
   const priorityData = stats?.tasks_by_priority
-    ? Object.keys(stats.tasks_by_priority)
-        .map(k => ({ name: k, value: stats.tasks_by_priority[k] }))
+    ? Object.entries(stats.tasks_by_priority)
+        .map(([k, v]) => ({ name: k, value: v }))
         .filter(d => d.value > 0)
     : [];
 

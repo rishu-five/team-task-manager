@@ -1,0 +1,27 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        background: '#0B0F19',
+        surface: '#111827',
+        primary: {
+          50: '#fdf4ff',
+          100: '#fae8ff',
+          500: '#d946ef',
+          600: '#c026d3',
+          700: '#a21caf',
+        }
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      }
+    },
+  },
+  plugins: [],
+}

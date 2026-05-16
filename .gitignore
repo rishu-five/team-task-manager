@@ -1,0 +1,41 @@
+# Environment files — NEVER commit these
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+.venv/
+venv/
+env/
+
+# Node / Frontend
+node_modules/
+frontend/dist/
+frontend/.cache/
+
+# Docker
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Alembic (keep versions, ignore pyc)
+alembic/versions/__pycache__/
+
+# Test coverage
+htmlcov/
+.coverage
+.pytest_cache/

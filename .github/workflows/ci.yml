@@ -75,9 +75,5 @@ jobs:
     - name: Install dependencies and build
       run: |
         cd frontend
-        if [ -f "package-lock.json" ]; then
-          npm ci
-        else
-          npm install
-        fi
+                  rm -f package-lock.json && npm install
         npm run build

@@ -4,6 +4,15 @@ import { useAuth } from '../../context/AuthContext';
 import { authApi } from '../../api/services';
 import { Loader2, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 
+/* ── Page shell (defined outside to avoid losing input focus on every keystroke) ───────────────── */
+const Shell = ({ children }: { children: React.ReactNode }) => (
+  <div className="min-h-screen bg-[#E8EDF5] dark:bg-[#030712] flex items-center justify-center p-4 transition-colors">
+    <div className="w-full max-w-md bg-white dark:bg-[#0D1526] rounded-3xl shadow-2xl shadow-indigo-100/40 dark:shadow-black/60 p-8 sm:p-10 relative border border-white dark:border-indigo-500/10">
+      {children}
+    </div>
+  </div>
+);
+
 export const Login: React.FC = () => {
   const [email, setEmail]               = useState('');
   const [password, setPassword]         = useState('');
@@ -76,15 +85,6 @@ export const Login: React.FC = () => {
     'w-full bg-[#EEF2FF] dark:bg-gray-800 text-gray-800 dark:text-white placeholder-gray-400 ' +
     'border border-transparent focus:border-indigo-400 focus:bg-white dark:focus:bg-gray-700 ' +
     'rounded-xl px-4 py-3.5 text-sm outline-none transition-all duration-150';
-
-  /* ── Page shell ───────────────────────────────────────────── */
-  const Shell = ({ children }: { children: React.ReactNode }) => (
-    <div className="min-h-screen bg-[#E8EDF5] dark:bg-[#030712] flex items-center justify-center p-4 transition-colors">
-      <div className="w-full max-w-md bg-white dark:bg-[#0D1526] rounded-3xl shadow-2xl shadow-indigo-100/40 dark:shadow-black/60 p-8 sm:p-10 relative border border-white dark:border-indigo-500/10">
-        {children}
-      </div>
-    </div>
-  );
 
   /* ── Brand Colors ────────────────────────────────────────── */
   const brandGradient = 'linear-gradient(90deg, #7c3aed, #06b6d4)';

@@ -38,8 +38,8 @@ async def health():
     return {"status": "healthy"}
 
 # Import router LAST
-try:
-    from app.api.main import api_router
-    app.include_router(api_router, prefix=settings.API_V1_STR)
-except Exception as e:
-    print("Router loading failed:", str(e))
+# try:
+#     from app.api.main import api_router
+#     app.include_router(api_router, prefix=settings.API_V1_STR)
+# except Exception as e:
+#     print("Router loading failed:", str(e))

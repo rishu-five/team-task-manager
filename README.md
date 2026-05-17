@@ -18,7 +18,7 @@
 
 | Feature | Description |
 |---|---|
-| 🔐 **Admin-Only Onboarding** | Accounts are created exclusively by administrators — no public sign-up |
+| 🔐 **Self-Signup & Role Selection** | Public sign-up enabled on the frontend with an interactive, premium role picker (Member, Admin, Super Admin) |
 | 👥 **User Lifecycle Management** | Toggle users Active/Closed, promote members to admins, see who created each account |
 | 📊 **Real-Time Dashboard** | Live-polling stats with task status & priority charts — refreshes every 5 seconds |
 | 📁 **Project Management** | Full project lifecycle with member assignment, budget tracking, and status management |
@@ -312,7 +312,7 @@ docker-compose up backend db redis
 # Frontend only (runs against a remote backend)
 cd frontend && npm install && npm run dev
 
-# Run database migrations manually
+# Run database migrations manually (Note: local and prod containers already run migrations automatically on startup)
 docker exec ttm_backend alembic upgrade head
 
 # Generate a new migration

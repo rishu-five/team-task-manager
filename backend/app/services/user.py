@@ -19,9 +19,20 @@ def create_user(db: Session, user_in: UserCreate, created_by_id: Optional[int] =
     if user:
         return None
     
-    # We must not mutate the user_in directly as it's a Pydantic model
-    # and we need to pass a dict or create a new schema for repository
     user_data = user_in.model_dump()
+    
+    # Map user_type to database role column (supporting super_admin, admin, member)
+    user_type = user_data.get("user_type", "member")
+    if user_type == "super_admin":
+        user_data["role"] = RoleEnum.super_admin
+    elif user_type == "admin":
+        user_data["role"] = RoleEnum.admin
+    else:
+        user_data["role"] = RoleEnum.member
+        
+    if "user_type" in user_data:
+        del user_data["user_type"]
+        
     user_data["hashed_password"] = get_password_hash(user_in.password)
     del user_data["password"]
     

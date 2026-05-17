@@ -32,22 +32,22 @@ def login_access_token(
         "token_type": "bearer",
     }
 
-# @router.post("/signup", response_model=User)
-# def create_user_signup(
-#     *,
-#     db: Session = Depends(deps.get_db),
-#     user_in: UserCreate,
-# ) -> Any:
-#     """
-#     Create new user without the need to be logged in.
-#     """
-#     user = create_user(db, user_in=user_in)
-#     if not user:
-#         raise HTTPException(
-#             status_code=400,
-#             detail="The user with this username already exists in the system.",
-#         )
-#     return user
+@router.post("/signup", response_model=User)
+def create_user_signup(
+    *,
+    db: Session = Depends(deps.get_db),
+    user_in: UserCreate,
+) -> Any:
+    """
+    Create new user without the need to be logged in.
+    """
+    user = create_user(db, user_in=user_in)
+    if not user:
+        raise HTTPException(
+            status_code=400,
+            detail="The user with this username already exists in the system.",
+        )
+    return user
 
 import random
 import string

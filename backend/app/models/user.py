@@ -4,6 +4,7 @@ from sqlalchemy.sql import func
 from app.db.base import Base
 
 class RoleEnum(str, enum.Enum):
+    super_admin = "super_admin"
     admin = "admin"
     member = "member"
 

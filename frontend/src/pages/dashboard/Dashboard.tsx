@@ -196,7 +196,7 @@ export const Dashboard: React.FC = () => {
                       ))}
                     </Pie>
                     <Tooltip
-                      formatter={(value: any, name: string) => {
+                      formatter={(value: any, name: any) => {
                         const val = Number(value);
                         const pct = total > 0 ? ((val / total) * 100).toFixed(0) : 0;
                         return [`${val} tasks (${pct}%)`, name];

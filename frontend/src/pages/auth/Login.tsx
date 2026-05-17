@@ -250,6 +250,18 @@ export const Login: React.FC = () => {
           Forgot password?
         </button>
       </div>
+
+      {/* Sign Up Link */}
+      <div className="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-400">
+        Don't have an account?{' '}
+        <button
+          type="button"
+          onClick={() => navigate('/signup')}
+          className="font-bold text-indigo-500 hover:text-indigo-600 dark:text-indigo-400 hover:underline transition-colors"
+        >
+          Sign Up here
+        </button>
+      </div>
     </Shell>
   );
 };
